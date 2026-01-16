@@ -7,7 +7,7 @@ AskHere bridges the gap between learning and industry by promoting genuine conne
 🌐 Live Demo
 Live Demo
 
-🔗 Live URL: https://your-live-link-here
+🔗 Live URL: https://sampadatiwari30.github.io/AskHere/
 
 🧩 Tech Stack
 
