@@ -1,0 +1,426 @@
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        .container-fluid {
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .container-fluid > .row {
+            min-height: 100vh;
+        }
+
+        .container-fluid > .row > .col-lg-5 {
+            padding: 0;
+        }
+
+        /* Left Branding Section */
+        .branding-section {
+            background-color: var(--bg-secondary);
+            min-height: 100vh;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInLeft 0.8s ease-out;
+            position: relative;
+        }
+
+        .brand-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .brand-logo i {
+            font-size: 3.5rem;
+            color: var(--brand-color);
+        }
+
+        .brand-logo i:active,
+        .brand-logo i:focus {
+            color: var(--brand-color);
+            outline: none;
+        }
+
+        .brand-logo h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .brand-logo h1:active,
+        .brand-logo h1:focus {
+            color: var(--text-primary);
+            outline: none;
+        }
+
+        .brand-tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-top: 1rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            background-color: var(--bg-primary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        .signup-card {
+            background-color: var(--bg-secondary);
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            padding: 2.5rem;
+            max-width: 600px;
+            width: 100%;
+            animation: slideUp 0.8s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .signup-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-header-custom {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .card-header-custom i {
+            font-size: 2.5rem;
+            color: var(--brand-color);
+            margin-bottom: 1rem;
+        }
+
+        .card-header-custom h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        /* Google Button */
+        .google-btn {
+            width: 100%;
+            padding: 0.875rem;
+            border: 2px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+
+        .google-btn:hover {
+            transform: scale(1.02);
+            background-color: var(--hover-bg);
+            border-color: var(--brand-color);
+        }
+
+        .google-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .divider span {
+            background-color: var(--bg-secondary);
+            padding: 0 1rem;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+            font-size: 0.875rem;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--border-color);
+            z-index: -1;
+        }
+
+        /* Form Inputs */
+        .form-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.925rem;
+        }
+
+        .form-control, .form-select {
+            padding: 0.75rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background-color: var(--input-bg);
+            color: var(--text-primary);
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--brand-color);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+            outline: none;
+        }
+
+        /* Role Selection */
+        .role-selection {
+            margin: 1.5rem 0;
+        }
+
+        .role-option {
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: var(--bg-secondary);
+        }
+
+        .role-option:hover {
+            border-color: var(--brand-color);
+            background-color: var(--hover-bg);
+            transform: translateX(4px);
+        }
+
+        .role-option.active {
+            border-color: var(--brand-color);
+            background-color: rgba(37, 99, 235, 0.05);
+        }
+
+        .role-option input[type="radio"] {
+            margin-right: 0.75rem;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--brand-color);
+        }
+
+        .role-option label {
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0;
+            width: 100%;
+        }
+
+        /* Conditional Fields */
+        .conditional-fields {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+            opacity: 0;
+        }
+
+        .conditional-fields.show {
+            max-height: 2000px;
+            opacity: 1;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            width: 100%;
+            padding: 0.875rem;
+            background-color: var(--brand-color);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--brand-hover);
+            transform: scale(1.02);
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Success Message */
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background-color: var(--bg-secondary);
+            padding: 2rem 3rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .success-message.show {
+            transform: translate(-50%, -50%) scale(1);
+            animation: successPop 0.5s ease-out;
+        }
+
+        .success-message i {
+            font-size: 4rem;
+            color: var(--brand-color);
+            margin-bottom: 1rem;
+        }
+
+        .success-message h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-bg);
+            z-index: 999;
+            display: none;
+        }
+
+        .overlay.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes successPop {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .branding-section {
+                min-height: auto;
+                padding: 2rem 0;
+            }
+
+            .brand-logo h1 {
+                font-size: 2rem;
+            }
+
+            .brand-logo i {
+                font-size: 2.5rem;
+            }
+
+            .signup-card {
+                padding: 1.5rem;
+            }
+
+            .card-header-custom h2 {
+                font-size: 1.5rem;
+            }
+        }

@@ -6,7 +6,8 @@
     <title>AskHere - Explore Opportunities</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Navbar -->
@@ -34,9 +35,13 @@
                         <a class="nav-link" href="#jobs">Jobs</a>
                     </li>
                 </ul>
-                <div class="d-flex flex-column flex-lg-row">
-                 <a href="signup.html"><button class="btn-signup">Sign up</button></a>
-                    <a href="login.html"><button class="btn-login">Member Login</button></a>
+                <div class="d-flex flex-column flex-lg-row align-items-center">
+                    <a href="pages/signup.html"><button class="btn-signup">Sign up</button></a>
+                    <a href="pages/login.html"><button class="btn-login">Member Login</button></a>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
                 </div>
             </div>
         </div>
@@ -53,7 +58,7 @@
                         <span>Sign up with Google</span>
                     </button>
                     <div class="mb-3">
-                        <a href="signup.html" class="join-link">Join now</a>
+                        <a href="pages/signup.html" class="join-link">Join now</a>
                     </div>
                 </div>
                 <div class="col-lg-6 hero-image">
@@ -221,6 +226,7 @@
             </div>
         </div>
     </footer>
-    <script src="index.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

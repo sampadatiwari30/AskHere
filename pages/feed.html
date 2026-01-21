@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed | AskHere</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/feed.css">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <i class="fas fa-comments"></i>
+                <span>AskHere</span>
+            </a>
+            <div class="navbar-search">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+            <div class="navbar-nav">
+                <a class="nav-item" href="feed.html">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span> </a>
+                    <a class="nav-item" href="network.html">
+                    <i class="fas fa-user-friends"></i>
+                    <span>Network</span></a>
+                    <a class="nav-item" href="message.html">
+                    <i class="fas fa-comment-dots"></i>
+                    <span>Messaging</span></a>
+                    <a class="nav-item" href="notification.html">
+                    <i class="fas fa-bell"></i>
+                    <span>Notifications</span></a>
+                <div class="nav-item">
+                    <img src="women2.jfif" alt="Profile" class="nav-profile-img">
+                    <a href="profile.html">
+                    <span>Me</span></a>
+                    
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar -->
+        <aside class="left-sidebar">
+            <div class="card profile-card">
+                <div class="profile-header">
+                    <div class="profile-img-wrapper">
+                        <img src="women2.jfif" alt="Profile" class="profile-img">
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <div class="profile-name">Sarah Johnson</div>
+                    <div class="profile-headline">Senior Product Manager at TechCorp | Building the future</div>
+                </div>
+                <div class="profile-divider"></div>
+                <div class="profile-stats">
+                    <div class="profile-stat">
+                        <span class="profile-stat-label">Profile viewers</span>
+                        <span class="profile-stat-value">142</span>
+                    </div>
+                    <div class="profile-stat">
+                        <span class="profile-stat-label">Post impressions</span>
+                        <span class="profile-stat-value">1,284</span>
+                    </div>
+                </div>
+                <div class="profile-divider"></div>
+                <div class="profile-divider"></div>
+                <div class="profile-stat">
+                    <i class="fas fa-bookmark"></i>
+                    <span class="profile-stat-label">My items</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Center Feed -->
+        <main class="feed-column">
+            <!-- Create Post -->
+            <div class="card create-post-card">
+                <div class="create-post-input">
+                    <img src="women2.jfif" alt="Profile" class="create-post-img">
+                    <div class="create-post-textarea">Start a post</div>
+                </div>
+                <div class="create-post-actions">
+                    <div class="create-post-action photo">
+                        <i class="fas fa-image"></i>
+                        <span>Photo</span>
+                    </div>
+                    <div class="create-post-action video">
+                        <i class="fas fa-video"></i>
+                        <span>Video</span>
+                    </div>
+                    <div class="create-post-action event">
+                        <i class="fas fa-calendar"></i>
+                        <span>Event</span>
+                    </div>
+                    <div class="create-post-action article">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Write article</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sort -->
+            <div class="card sort-posts">
+                <div class="sort-divider"></div>
+                <div class="sort-text">Sort by: <strong>Top</strong> <i class="fas fa-caret-down"></i></div>
+                <div class="sort-divider"></div>
+            </div>
+
+            <!-- Posts Feed -->
+            <div id="postsContainer">
+                <!-- Skeleton Loading -->
+                <div class="card skeleton-post post-card">
+                    <div class="skeleton-header">
+                        <div class="skeleton skeleton-avatar"></div>
+                        <div class="skeleton-info">
+                            <div class="skeleton skeleton-line" style="width: 40%;"></div>
+                            <div class="skeleton skeleton-line short"></div>
+                        </div>
+                    </div>
+                    <div class="skeleton skeleton-content"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <!-- Add to Feed -->
+            <div class="card suggestions-card">
+                <div class="suggestions-header">
+                    <div class="suggestions-title">Add to your feed</div>
+                    <i class="fas fa-info-circle suggestions-info"></i>
+                </div>
+
+                <div class="suggestion-item">
+                    <img src="men2.jfif" alt="Profile" class="suggestion-img">
+                    <div class="suggestion-info">
+                        <div class="suggestion-name">AI & Machine Learning</div>
+                        <div class="suggestion-headline">Company • Technology</div>
+                        <div class="suggestion-mutual">
+                            <i class="fas fa-user"></i>
+                            2,847 followers
+                        </div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+
+                <div class="suggestion-item">
+                    <img src="women1.jfif" alt="Profile" class="suggestion-img">
+                    <div class="suggestion-info">
+                        <div class="suggestion-name">#productmanagement</div>
+                        <div class="suggestion-headline">Hashtag</div>
+                        <div class="suggestion-mutual">
+                            15,284 followers
+                        </div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+
+                <div class="suggestion-item">
+                    <img src="women3.jfif" alt="Profile" class="suggestion-img">
+                    <div class="suggestion-info">
+                        <div class="suggestion-name">Tech Innovators</div>
+                        <div class="suggestion-headline">Group • 8,421 members</div>
+                        <div class="suggestion-mutual">
+                            <i class="fas fa-user"></i>
+                            12 connections are members
+                        </div>
+                    </div>
+                    <button class="follow-btn">Follow</button>
+                </div>
+
+                <div class="view-all">View all recommendations <i class="fas fa-arrow-right"></i></div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-nav">
+        <div class="mobile-nav-items">
+            <div class="mobile-nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </div>
+            <div class="mobile-nav-item">
+                <i class="fas fa-user-friends"></i>
+                <span>Network</span>
+            </div>
+            <div class="mobile-nav-item">
+                <i class="fas fa-plus-square"></i>
+                <span>Post</span>
+            </div>
+            <div class="mobile-nav-item">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+            </div>
+            <div class="mobile-nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>Jobs</span>
+            </div>
+        </div>
+    </div>
+        <script src="../js/theme.js"></script>
+        <script src="../js/feed.js"></script>
+</body>
+</html>

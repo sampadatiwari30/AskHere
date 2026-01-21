@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications | AsHere</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/notification.css">
+</head>
+<body>
+    <!-- ===========================
+         Top Navigation
+    =========================== -->
+    <nav class="top-nav" id="topNav">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <i class="fas fa-comments"></i>
+                <span>AskHere</span>
+            </a>
+            <div class="nav-actions">
+                <div class="nav-icon" title="Home">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="nav-icon active" title="Notifications">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="nav-icon" title="Messages">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <button class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===========================
+         Main Container
+    =========================== -->
+    <div class="main-container">
+        <!-- Left Sidebar - Desktop Filters -->
+        <aside class="sidebar">
+            <div class="filter-item active" data-filter="all">
+                <i class="fas fa-bell"></i>
+                <span>All</span>
+            </div>
+            <div class="filter-item" data-filter="my-posts">
+                <i class="fas fa-file-alt"></i>
+                <span>My Posts</span>
+            </div>
+            <div class="filter-item" data-filter="mentions">
+                <i class="fas fa-at"></i>
+                <span>Mentions</span>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main>
+            <!-- Mobile Filters (Horizontal Tabs) -->
+            <div class="mobile-filters">
+                <div class="mobile-filter-item active" data-filter="all">
+                    All
+                </div>
+                <div class="mobile-filter-item" data-filter="my-posts">
+                    My Posts
+                </div>
+                <div class="mobile-filter-item" data-filter="mentions">
+                    Mentions
+                </div>
+            </div>
+
+            <!-- Notifications Feed -->
+            <div class="notifications-feed">
+                <!-- Feed Header -->
+                <div class="feed-header">
+                    <h1>Notifications</h1>
+                    <button class="mark-all-read" id="markAllReadBtn">
+                        Mark all as read
+                    </button>
+                </div>
+
+                <!-- Notifications List -->
+                <div class="notifications-list" id="notificationsList">
+                    <!-- Notification 1 - Unread, Mentions -->
+                    <div class="notification-card unread" data-category="mentions">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=1" alt="Sarah Johnson">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Sarah Johnson</strong> mentioned you in a comment: "Great insights @You! This aligns perfectly with our strategy."
+                            </div>
+                            <div class="notification-meta">
+                                <span class="unread-indicator"></span>
+                                <span>2h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 2 - Unread, All -->
+                    <div class="notification-card unread" data-category="all">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=2" alt="Michael Chen">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Michael Chen</strong> wants to connect with you
+                            </div>
+                            <div class="notification-meta">
+                                <span class="unread-indicator"></span>
+                                <span>3h</span>
+                            </div>
+                            <div class="notification-action">
+                                <button class="action-btn primary">Accept</button>
+                                <button class="action-btn">Ignore</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 3 - Read, My Posts -->
+                    <div class="notification-card" data-category="my-posts">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=3" alt="Emma Williams">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Emma Williams</strong> and <strong>12 others</strong> reacted to your post
+                            </div>
+                            <div class="notification-meta">
+                                <span>5h</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 4 - Read, My Posts -->
+                    <div class="notification-card" data-category="my-posts">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=4" alt="David Martinez">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>David Martinez</strong> commented on your post: "Excellent analysis! Would love to discuss this further."
+                            </div>
+                            <div class="notification-meta">
+                                <span>1d</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 5 - Unread, All -->
+                    <div class="notification-card unread" data-category="all">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=5" alt="TechCorp Inc">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>TechCorp Inc</strong> posted a new job: Senior Product Manager
+                            </div>
+                            <div class="notification-meta">
+                                <span class="unread-indicator"></span>
+                                <span>1d</span>
+                            </div>
+                            <div class="notification-action">
+                                <button class="action-btn">View Job</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 6 - Read, Mentions -->
+                    <div class="notification-card" data-category="mentions">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=6" alt="Lisa Anderson">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Lisa Anderson</strong> tagged you in a post about product management best practices
+                            </div>
+                            <div class="notification-meta">
+                                <span>2d</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 7 - Read, All -->
+                    <div class="notification-card" data-category="all">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=7" alt="James Wilson">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>James Wilson</strong> started following you
+                            </div>
+                            <div class="notification-meta">
+                                <span>2d</span>
+                            </div>
+                            <div class="notification-action">
+                                <button class="action-btn">Follow Back</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 8 - Read, My Posts -->
+                    <div class="notification-card" data-category="my-posts">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=8" alt="Rachel Kim">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Rachel Kim</strong> and <strong>8 others</strong> commented on your post
+                            </div>
+                            <div class="notification-meta">
+                                <span>3d</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 9 - Read, All -->
+                    <div class="notification-card" data-category="all">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=9" alt="Innovation Labs">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Innovation Labs</strong> invited you to follow their company page
+                            </div>
+                            <div class="notification-meta">
+                                <span>3d</span>
+                            </div>
+                            <div class="notification-action">
+                                <button class="action-btn">Follow</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 10 - Read, My Posts -->
+                    <div class="notification-card" data-category="my-posts">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=10" alt="Tom Rodriguez">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Tom Rodriguez</strong> shared your post with their network
+                            </div>
+                            <div class="notification-meta">
+                                <span>4d</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 11 - Unread, Mentions -->
+                    <div class="notification-card unread" data-category="mentions">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=11" alt="Alex Thompson">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Alex Thompson</strong> mentioned you: "Thanks for the recommendation @You!"
+                            </div>
+                            <div class="notification-meta">
+                                <span class="unread-indicator"></span>
+                                <span>5d</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notification 12 - Read, All -->
+                    <div class="notification-card" data-category="all">
+                        <div class="notification-avatar">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Sophie Martin">
+                        </div>
+                        <div class="notification-content">
+                            <div class="notification-text">
+                                <strong>Sophie Martin</strong> viewed your profile
+                            </div>
+                            <div class="notification-meta">
+                                <span>1w</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+      <script src="../js/theme.js"></script>
+      <script src="../js/notification.js"></script>
+</body>
+</html>
