@@ -22,12 +22,40 @@ Version Control: Git, GitHub
 AskHere/
 │
 ├── assets/               # Images, icons, and static resources
-├── pages/                # Profile, feed, and connection pages
+│   ├── men1.jfif
+│   ├── men2.jfif
+│   ├── women1.jfif
+│   ├── women2.jfif
+│   └── women3.jfif
+├── css/                  # Stylesheets
+│   ├── theme.css         # Global theme variables
+│   ├── login.css
+│   ├── signup.css
+│   ├── feed.css
+│   ├── profile.css
+│   ├── message.css
+│   ├── network.css
+│   └── notification.css
+├── js/                   # JavaScript files
+│   ├── theme.js          # Theme toggle logic
+│   ├── login.js
+│   ├── signup.js
+│   ├── feed.js
+│   ├── profile.js
+│   ├── message.js
+│   ├── network.js
+│   └── notification.js
+├── pages/                # Application pages
+│   ├── login.html
+│   ├── signup.html
+│   ├── feed.html
+│   ├── profile.html
+│   ├── message.html
+│   ├── network.html
+│   └── notification.html
 ├── index.html            # Landing page
-├── style.css             # Custom styles
-├── script.js             # Core frontend logic
-├── js/
-│   └── firebase.js       # Firebase configuration
+├── style.css             # Landing page styles
+├── script.js             # Landing page logic
 └── README.md             # Project documentation
 
 🗂️ Table of Contents

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Network | AsHere</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/network.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar-custom">
+        <div class="navbar-container d-flex align-items-center justify-content-between">
+            <!-- Logo -->
+            <a href="#" class="navbar-brand">
+                <i class="fas fa-comments"></i>
+                AsHere
+            </a>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search">
+            </div>
+
+            <!-- Navigation Items -->
+            <ul class="nav-items">
+                <li>
+                    <a href="feed.html" class="nav-item">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="network.html" class="nav-item active">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Network</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="message.html" class="nav-item">
+                        <i class="fas fa-comment-dots"></i>
+                        <span>Messaging</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="notification.html" class="nav-item">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-item">
+                        <img src="https://i.pravatar.cc/150?img=33" alt="Profile" class="profile-avatar">
+                        <a href="pro"></a>
+                        <span>Me</span>
+                    </a>
+                </li>
+                <li>
+                    <button class="theme-toggle" aria-label="Toggle dark mode">
+                        <i class="fas fa-moon"></i>
+                        <i class="fas fa-sun"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-lg-3">
+                <div class="card-custom">
+                    <div class="section-header">
+                        <h5>Manage my network</h5>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item" onclick="handleSidebarClick('connections')">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Connections</span>
+                        </li>
+                        <li class="sidebar-menu-item" onclick="handleSidebarClick('following')">
+                            <i class="fas fa-rss"></i>
+                            <span>Following & Followers</span>
+                        </li>
+                        <li class="sidebar-menu-item" onclick="handleSidebarClick('events')">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Events</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Invitations Section -->
+                <div class="card-custom">
+                    <div class="nav-tabs-custom">
+                        <button class="nav-tab active">Received (3)</button>
+                        <button class="nav-tab">Sent (5)</button>
+                    </div>
+                    <div class="invitations-content">
+                        <div class="invitation-card">
+                            <img src="https://i.pravatar.cc/150?img=45" alt="Profile" class="invitation-avatar">
+                            <div class="invitation-info">
+                                <h6>Sarah Johnson</h6>
+                                <p>Senior Product Manager at TechCorp • 12 mutual connections</p>
+                            </div>
+                            <div class="invitation-actions">
+                                <button class="btn-accept" onclick="handleAccept(this)">Accept</button>
+                                <button class="btn-ignore" onclick="handleIgnore(this)">Ignore</button>
+                            </div>
+                        </div>
+                        <div class="invitation-card">
+                            <img src="https://i.pravatar.cc/150?img=52" alt="Profile" class="invitation-avatar">
+                            <div class="invitation-info">
+                                <h6>Michael Chen</h6>
+                                <p>Software Engineer at StartupXYZ • 8 mutual connections</p>
+                            </div>
+                            <div class="invitation-actions">
+                                <button class="btn-accept" onclick="handleAccept(this)">Accept</button>
+                                <button class="btn-ignore" onclick="handleIgnore(this)">Ignore</button>
+                            </div>
+                        </div>
+                        <div class="invitation-card">
+                            <img src="https://i.pravatar.cc/150?img=27" alt="Profile" class="invitation-avatar">
+                            <div class="invitation-info">
+                                <h6>Emily Rodriguez</h6>
+                                <p>UX Designer at DesignHub • 15 mutual connections</p>
+                            </div>
+                            <div class="invitation-actions">
+                                <button class="btn-accept" onclick="handleAccept(this)">Accept</button>
+                                <button class="btn-ignore" onclick="handleIgnore(this)">Ignore</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- People You May Know Section -->
+                <div class="card-custom">
+                    <div class="section-header">
+                        <h5>People you may know</h5>
+                    </div>
+                    <div class="profile-cards-grid">
+                        <div class="profile-card">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Profile" class="profile-card-avatar">
+                            <h6>Jessica Martinez</h6>
+                            <p class="profile-card-headline">Marketing Director at Global Brands Inc.</p>
+                            <div class="mutual-connections">
+                                <div class="mutual-avatars">
+                                    <div class="mutual-avatar"></div>
+                                    <div class="mutual-avatar"></div>
+                                </div>
+                                <span>23 mutual connections</span>
+                            </div>
+                            <button class="btn-connect" onclick="handleConnect(this)">
+                                <i class="fas fa-user-plus"></i> Connect
+                            </button>
+                        </div>
+                        <div class="profile-card">
+                            <img src="https://i.pravatar.cc/150?img=68" alt="Profile" class="profile-card-avatar">
+                            <h6>David Thompson</h6>
+                            <p class="profile-card-headline">CEO at Innovation Labs</p>
+                            <div class="mutual-connections">
+                                <div class="mutual-avatars">
+                                    <div class="mutual-avatar"></div>
+                                    <div class="mutual-avatar"></div>
+                                </div>
+                                <span>18 mutual connections</span>
+                            </div>
+                            <button class="btn-connect" onclick="handleConnect(this)">
+                                <i class="fas fa-user-plus"></i> Connect
+                            </button>
+                        </div>
+                        <div class="profile-card">
+                            <img src="https://i.pravatar.cc/150?img=32" alt="Profile" class="profile-card-avatar">
+                            <h6>Amanda Lee</h6>
+                            <p class="profile-card-headline">Data Scientist at AI Solutions</p>
+                            <div class="mutual-connections">
+                                <div class="mutual-avatars">
+                                    <div class="mutual-avatar"></div>
+                                    <div class="mutual-avatar"></div>
+                                </div>
+                                <span>31 mutual connections</span>
+                            </div>
+                            <button class="btn-connect" onclick="handleConnect(this)">
+                                <i class="fas fa-user-plus"></i> Connect
+                            </button>
+                        </div>
+                        <div class="profile-card">
+                            <img src="https://i.pravatar.cc/150?img=59" alt="Profile" class="profile-card-avatar">
+                            <h6>Robert Wilson</h6>
+                            <p class="profile-card-headline">Business Development Manager at Enterprise Co.</p>
+                            <div class="mutual-connections">
+                                <div class="mutual-avatars">
+                                    <div class="mutual-avatar"></div>
+                                    <div class="mutual-avatar"></div>
+                                </div>
+                                <span>9 mutual connections</span>
+                            </div>
+                            <button class="btn-connect" onclick="handleConnect(this)">
+                                <i class="fas fa-user-plus"></i> Connect
+                            </button>
+                        </div>
+                        <div class="profile-card">
+                            <img src="https://i.pravatar.cc/150?img=41" alt="Profile" class="profile-card-avatar">
+                            <h6>Nicole Anderson</h6>
+                            <p class="profile-card-headline">Content Strategist at Media Group</p>
+                            <div class="mutual-connections">
+                                <div class="mutual-avatars">
+                                    <div class="mutual-avatar"></div>
+                                    <div class="mutual-avatar"></div>
+                                </div>
+                                <span>27 mutual connections</span>
+                            </div>
+                            <button class="btn-connect" onclick="handleConnect(this)">
+                                <i class="fas fa-user-plus"></i> Connect
+                            </button>
+                        </div>
+                        <div class="profile-card">
+                            <img src="https://i.pravatar.cc/150?img=70" alt="Profile" class="profile-card-avatar">
+                            <h6>James Brown</h6>
+                            <p class="profile-card-headline">Full Stack Developer at WebTech Solutions</p>
+                            <div class="mutual-connections">
+                                <div class="mutual-avatars">
+                                    <div class="mutual-avatar"></div>
+                                    <div class="mutual-avatar"></div>
+                                </div>
+                                <span>14 mutual connections</span>
+                            </div>
+                            <button class="btn-connect" onclick="handleConnect(this)">
+                                <i class="fas fa-user-plus"></i> Connect
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+       <script src="../js/theme.js"></script>
+       <script src="../js/network.js"></script>
+</body>
+</html>
