@@ -3,36 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AsHere Messaging</title>
+    <title>Messages | AskHere</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="message.css">
 </head>
 <body>
-    <div class="messaging-container">
-        <!-- Left Panel: Conversations List -->
-        <div class="conversations-panel">
-            <div class="conversations-header">
-                <h2>Messaging</h2>
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Search messages" id="searchInput">
-                </div>
-            </div>
-            <div class="conversations-list" id="conversationsList">
-                <!-- Conversations will be dynamically loaded here -->
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand text-primary fw-bold" href="feed.html">
+                <i class="fas fa-comments me-2"></i>AskHere
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                 <a href="feed.html" class="text-secondary text-decoration-none"><i class="fas fa-home me-1"></i> Home</a>
+                 <a href="network.html" class="text-secondary text-decoration-none"><i class="fas fa-user-friends me-1"></i> Network</a>
             </div>
         </div>
+    </nav>
 
-        <!-- Right Panel: Chat Window -->
-        <div class="chat-panel empty" id="chatPanel">
-            <div class="empty-state">
-                <i class="far fa-comments"></i>
-                <h3>Select a conversation</h3>
-                <p>Choose a conversation from the list to start messaging</p>
-            </div>
+    <div class="container my-3">
+        <div class="messaging-container">
+            <aside class="conversations-panel" id="conversationsPanel">
+                <div class="conversations-header">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h2 class="h5 mb-0 fw-bold">Messaging</h2>
+                        <button class="btn btn-icon"><i class="fas fa-edit"></i></button>
+                    </div>
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search messages..." id="searchInput">
+                    </div>
+                </div>
+                
+                <div class="conversations-filter">
+                    <button class="filter-btn active">Focused</button>
+                    <button class="filter-btn">Other</button>
+                </div>
+
+                <div class="conversations-list" id="conversationsList">
+                    </div>
+            </aside>
+
+            <main class="chat-panel empty" id="chatPanel">
+                <div class="empty-state">
+                    <img src="https://illustrations.popsy.co/gray/work-from-home.svg" alt="No Message Selected" class="empty-img">
+                    <h3 class="h4 mt-3">Select a conversation</h3>
+                    <p class="text-muted">Choose a connection from the left to start messaging</p>
+                    <button class="btn btn-primary rounded-pill px-4 mt-2">New Message</button>
+                </div>
+            </main>
         </div>
     </div>
-       <script src="message.js"></script>
+
+    <script src="message.js"></script>
 </body>
 </html>
