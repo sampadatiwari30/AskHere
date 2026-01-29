@@ -157,11 +157,11 @@
         }
 
         .btn-google {
-            background: var(--bg-white);
+            background: rgb(175, 175, 235);
             color: var(--text-dark);
             padding: 1rem 2.5rem;
             border-radius: 30px;
-            border: 2px solid var(--light-grey);
+            border: 2px solid blue;
             font-weight: 600;
             font-size: 1.1rem;
             width: 100%;
@@ -184,7 +184,7 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: var(--light-grey);
+            background: rgb(88, 88, 245);
             transform: translate(-50%, -50%);
             transition: width 0.6s, height 0.6s;
         }
