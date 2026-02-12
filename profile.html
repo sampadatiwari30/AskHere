@@ -13,163 +13,202 @@
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark sticky-top">
-    <div class="container d-flex justify-content-between">
-        <a class="navbar-brand fw-bold" href="#"><i class="fas fa-comments text-primary me-2"></i>AskHere</a>
-        <div class="d-flex align-items-center gap-3">
-            <span class="text-white-50 small d-none d-md-inline">Edit Role (Owner View):</span>
-            <select id="roleControl" class="form-select form-select-sm" onchange="syncUI()" style="width: 180px;">
-                <option value="Working Professional">Working Professional</option>
-                <option value="Student">Student/Fresher</option>
-            </select>
-        </div>
-    </div>
-</nav>
-
-<div class="container py-4">
-    <div class="askhere-card">
-        
-        <div class="banner"></div>
-        <div class="header-content">
-            <div class="profile-pic-container" onclick="document.getElementById('picInput').click()">
-                <img id="mainPic" src="https://via.placeholder.com/160?text=User" alt="User">
-                <div class="pic-overlay"><i class="fas fa-camera"></i> Edit Photo</div>
+    <nav class="navbar navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+                <i class="fas fa-comments text-primary"></i> AskHere
+            </a>
+            <div class="d-flex align-items-center gap-3">
+                <span class="text-white-50 small d-none d-md-block">View As:</span>
+                <select id="roleControl" class="form-select form-select-sm" onchange="syncUI()" style="width: auto; min-width: 140px;">
+                    <option value="Working Professional">Professional</option>
+                    <option value="Student">Student</option>
+                </select>
             </div>
-            <input type="file" id="picInput" hidden accept="image/*">
+        </div>
+    </nav>
 
-            <div class="mt-3">
-                <h2 class="fw-bold mb-0">Jordan Sterling <i class="fas fa-check-circle text-primary fs-6"></i></h2>
-                <p id="roleDisplay" class="text-muted fs-5 mb-3">Working Professional</p>
+    <div class="container">
+        <div class="askhere-card">
+            
+            <div class="banner"></div>
+            
+            <div class="header-content">
+                <div class="profile-pic-wrapper">
+                    <div class="profile-pic-container" onclick="document.getElementById('picInput').click()">
+                        <img id="mainPic" src="./user.png" alt="Profile Picture">
+                        <div class="pic-overlay"><i class="fas fa-camera"></i> Edit</div>
+                    </div>
+                </div>
+                <input type="file" id="picInput" hidden accept="image/*">
+
+                <div class="profile-info-block">
+                    <div class="profile-identity">
+                        <h2>Jordan Sterling <i class="fas fa-check-circle text-primary fs-5 align-middle" title="Verified"></i></h2>
+                        <p id="roleDisplay" class="role-text">Working Professional at Tech Corp</p>
+                        <p class="profile-location text-muted mb-0">San Francisco Bay Area • <a href="#" class="text-decoration-none fw-bold text-primary">Contact Info</a></p>
+                    </div>
+
+                    <div class="action-bar">
+                        <button id="connBtn" class="btn btn-ah btn-ah-primary" onclick="logicConnect()">Connect</button>
+                        <button id="followBtn" class="btn btn-ah btn-ah-outline" onclick="logicFollow()">Follow</button>
+                        <button class="btn btn-ah btn-ah-outline" data-bs-toggle="modal" data-bs-target="#msgModal">Message</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-section">
+                <div class="section-header">
+                    <h3 class="section-title">About</h3>
+                    <button class="btn-icon-edit" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                        <i class="fas fa-pencil-alt"></i>
+                    </button>
+                </div>
+                <p id="aboutText" class="about-text">Passionate Full-Stack Developer creating intuitive experiences on AskHere. Specialized in JavaScript technologies (React, Node.js) and cloud infrastructure. Always eager to connect with like-minded professionals and build something great together.</p>
+            </div>
+
+            <div class="p-section">
+                <div class="section-header">
+                    <h3 class="section-title">Activity</h3>
+                    <div class="d-flex gap-2">
+                         <button class="btn btn-sm btn-outline-secondary rounded-pill">Posts</button>
+                         <button class="btn btn-sm btn-outline-secondary rounded-pill">Comments</button>
+                    </div>
+                </div>
                 
-                <div class="d-flex flex-wrap gap-2 action-bar">
-                    <button id="connBtn" class="btn btn-ah btn-ah-primary" onclick="logicConnect()">Connect</button>
-                    <button id="followBtn" class="btn btn-ah btn-ah-outline" onclick="logicFollow()">Follow</button>
-                    <button class="btn btn-ah btn-ah-outline" data-bs-toggle="modal" data-bs-target="#msgModal">Message</button>
+                <div class="post-input-box">
+                    <img id="postMiniPic" src="./user.png" class="rounded-circle" width="32" height="32">
+                    <input id="postInput" class="post-input-field" placeholder="Start a post, try writing with AI...">
+                    <button id="postBtn" class="btn btn-sm btn-primary rounded-pill px-3" onclick="handleNewPost()">Post</button>
                 </div>
-            </div>
-        </div>
+                <small id="roleWarning" class="text-danger d-none mb-3 d-block"><i class="fas fa-exclamation-circle"></i> Only professionals can post.</small>
 
-        <div class="p-section">
-            <div class="section-header">
-                <h3 class="section-title">About</h3>
-                <button class="btn btn-sm btn-light rounded-circle" data-bs-toggle="modal" data-bs-target="#aboutModal"><i class="fas fa-pencil-alt"></i></button>
+                <div id="postFeed">
+                    </div>
             </div>
-            <p id="aboutText" class="text-secondary mb-0">Passionate Full-Stack Developer creating intuitive experiences on AskHere. Let's connect and build something great together.</p>
-        </div>
 
-        <div class="p-section">
-            <h3 class="section-title">Activity</h3>
-            <div class="post-input-box mb-4">
-                <div class="d-flex gap-2 mb-2">
-                    <img id="postMiniPic" src="https://via.placeholder.com/40" class="rounded-circle" width="40" height="40">
-                    <textarea id="postInput" class="form-control" rows="1" placeholder="What's on your mind?"></textarea>
+            <div class="p-section">
+                <div class="section-header">
+                    <h3 class="section-title">Skills</h3>
+                    <div class="d-flex gap-2">
+                        <button class="btn-icon-edit" onclick="openCRUDModal('Skills')"><i class="fas fa-plus"></i></button>
+                        <button class="btn-icon-edit"><i class="fas fa-pencil-alt"></i></button>
+                    </div>
                 </div>
-                <div class="d-flex justify-content-end align-items-center">
-                    <small id="roleWarning" class="text-danger me-3 d-none">Only professionals can post.</small>
-                    <button id="postBtn" class="btn btn-ah btn-ah-primary btn-sm" onclick="handleNewPost()">Post</button>
+                <div id="skillsList" class="d-flex flex-wrap gap-2"></div>
+            </div>
+
+            <div class="p-section">
+                <div class="section-header">
+                    <h3 class="section-title">Projects</h3>
+                    <button class="btn-icon-edit" onclick="openCRUDModal('Projects')"><i class="fas fa-plus"></i></button>
                 </div>
+                <div id="projList"></div>
             </div>
-            <div id="postFeed"></div>
-        </div>
 
-        <div class="p-section">
-            <div class="section-header">
-                <h3 class="section-title">Skills</h3>
-                <button class="btn btn-sm btn-light rounded-circle" onclick="openCRUDModal('Skills')"><i class="fas fa-plus"></i></button>
+             <div class="p-section">
+                <div class="section-header">
+                    <h3 class="section-title">Education</h3>
+                    <button class="btn-icon-edit" onclick="openCRUDModal('Education')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div id="eduList"></div>
             </div>
-            <div id="skillsList" class="d-flex flex-wrap gap-2"></div>
-        </div>
 
-        <div class="p-section">
-            <div class="section-header">
-                <h3 class="section-title">Education</h3>
-                <button class="btn btn-sm btn-light rounded-circle" onclick="openCRUDModal('Education')"><i class="fas fa-plus"></i></button>
+            <div class="p-section">
+                <div class="section-header">
+                    <h3 class="section-title">Achievements</h3>
+                    <button class="btn-icon-edit" onclick="openCRUDModal('Achievements')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div id="achList"></div>
             </div>
-            <div id="eduList"></div>
-        </div>
 
-        <div class="p-section">
-            <div class="section-header">
-                <h3 class="section-title">Achievements</h3>
-                <button class="btn btn-sm btn-light rounded-circle" onclick="openCRUDModal('Achievements')"><i class="fas fa-plus"></i></button>
-            </div>
-            <div id="achList"></div>
-        </div>
-
-        <div class="p-section">
-            <div class="section-header">
-                <h3 class="section-title">Projects</h3>
-                <button class="btn btn-sm btn-light rounded-circle" onclick="openCRUDModal('Projects')"><i class="fas fa-plus"></i></button>
-            </div>
-            <div id="projList"></div>
-        </div>
-
-    </div>
-</div>
-
-<div class="modal fade" id="aboutModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"><h5>Edit About</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-            <div class="modal-body"><textarea id="aboutEditInput" class="form-control" rows="5"></textarea></div>
-            <div class="modal-footer"><button class="btn btn-ah-primary btn-ah" onclick="saveAbout()">Save</button></div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="crudModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"><h5 id="modalTitle">Add Detail</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-            <div class="modal-body">
-                <form id="crudForm">
-                    <div class="mb-3" id="mainField">
-                        <label class="form-label">Name/Title</label>
-                        <input type="text" class="form-control" id="titleInput" required>
-                    </div>
-                    <div class="mb-3 d-none" id="subField">
-                        <label class="form-label" id="subLabel">Associated With</label>
-                        <input type="text" class="form-control" id="subInput">
-                    </div>
-                    <div class="row d-none" id="dateFields">
-                        <div class="col-6 mb-3"><label class="form-label">Start / Issue Date</label><input type="text" class="form-control" id="date1" placeholder="Year/Date"></div>
-                        <div class="col-6 mb-3" id="date2Field"><label class="form-label">End Date</label><input type="text" class="form-control" id="date2" placeholder="Year"></div>
-                    </div>
-                    <div class="mb-3 d-none" id="descField">
-                        <label class="form-label">Description</label>
-                        <textarea class="form-control" id="descInput" rows="3"></textarea>
-                    </div>
-                    <div class="mb-3 d-none" id="linkField">
-                        <label class="form-label">Project Link</label>
-                        <input type="url" class="form-control" id="urlInput">
-                    </div>
+    <div class="modal fade" id="aboutModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fw-bold m-0">Edit About</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Media (Optional)</label>
-                        <input type="file" class="form-control" id="mediaInput">
+                        <label class="form-label text-secondary small fw-bold">Overview</label>
+                        <textarea id="aboutEditInput" class="form-control" rows="8"></textarea>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer d-flex justify-content-between">
-                <button class="btn btn-danger btn-sm d-none" id="delBtn" onclick="deleteEntry()">Delete</button>
-                <button class="btn btn-ah-primary btn-ah btn-sm" onclick="saveEntry()">Save</button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-ah-primary btn-ah" onclick="saveAbout()">Save</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<div class="modal fade" id="msgModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header"><h5>Message Jordan</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
-            <div class="modal-body">
-                <textarea id="msgBody" class="form-control" maxlength="1000" rows="3" placeholder="Type your message..."></textarea>
-                <div id="msgStatus" class="mt-2 small text-danger"></div>
+    <div class="modal fade" id="crudModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="modalTitle" class="fw-bold m-0">Add Detail</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="crudForm">
+                        <div class="mb-3" id="mainField">
+                            <label class="form-label fw-bold small text-secondary">Name / Title</label>
+                            <input type="text" class="form-control" id="titleInput" required>
+                        </div>
+                        <div class="mb-3 d-none" id="subField">
+                            <label class="form-label fw-bold small text-secondary" id="subLabel">Associated With</label>
+                            <input type="text" class="form-control" id="subInput">
+                        </div>
+                        <div class="row d-none" id="dateFields">
+                            <div class="col-6 mb-3">
+                                <label class="form-label fw-bold small text-secondary">Start Date</label>
+                                <input type="text" class="form-control" id="date1" placeholder="Ex: 2020">
+                            </div>
+                            <div class="col-6 mb-3" id="date2Field">
+                                <label class="form-label fw-bold small text-secondary">End Date</label>
+                                <input type="text" class="form-control" id="date2" placeholder="Ex: Present">
+                            </div>
+                        </div>
+                        <div class="mb-3 d-none" id="descField">
+                            <label class="form-label fw-bold small text-secondary">Description</label>
+                            <textarea class="form-control" id="descInput" rows="4"></textarea>
+                        </div>
+                        <div class="mb-3 d-none" id="linkField">
+                            <label class="form-label fw-bold small text-secondary">URL / Link</label>
+                            <input type="url" class="form-control" id="urlInput" placeholder="https://...">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer d-flex justify-content-between">
+                    <button class="btn btn-outline-danger btn-sm d-none" id="delBtn" onclick="deleteEntry()">Delete</button>
+                    <button class="btn btn-ah-primary btn-ah" onclick="saveEntry()">Save</button>
+                </div>
             </div>
-            <div class="modal-footer"><button id="sendMsgBtn" class="btn btn-ah-primary btn-ah btn-sm" onclick="handleMessage()">Send</button></div>
         </div>
     </div>
-</div>
-     <script src="profile.js"></script>
+
+    <div class="modal fade" id="msgModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="fw-bold m-0">Message Jordan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <textarea id="msgBody" class="form-control" rows="4" placeholder="Write a message..."></textarea>
+                    <div id="msgStatus" class="mt-2 small text-danger"></div>
+                </div>
+                <div class="modal-footer">
+                    <button id="sendMsgBtn" class="btn btn-ah-primary btn-ah" onclick="handleMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Theme Script -->
